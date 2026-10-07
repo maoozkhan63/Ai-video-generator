@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AI Video Generator</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+
+    <div class="logo">
+  <span class="logo-icon">✦</span>
+  <span>AI Video</span>
+</div>
+
+    <div class="auth-buttons">
+
+      <button class="login-btn" onclick="showLogin()">
+        Login
+      </button>
+
+      <button class="signup-btn" onclick="showSignup()">
+        Sign Up
+      </button>
+
+    </div>
+
+  </nav<>
+
+
+  <!-- MAIN HOME PAGE -->
+  <main class="container">
+
+    <h1>
+      Create Amazing Videos with AI ✨
+    </h1>
+
+    <p class="subtitle">
+      Turn your ideas into stunning videos in seconds.
+    </p>
+
+
+    <!-- VIDEO GENERATOR -->
+    <div class="box">
+
+      <label for="prompt">
+        🎥 Describe your video
+      </label>
+
+      <textarea
+        id="prompt"
+       
+        placeholder="Example: A superhero running through a futuristic city at night..."
+      ></textarea>
+      <div class="video-settings">
+
+  <div class="setting">
+  <label for="duration">⏱️ Duration</label>
+  <select id="duration">
+    <option value="5">5 Seconds</option>
+    <option value="6">6 Seconds</option>
+    <option value="7">7 Seconds</option>
+    <option value="8">8 Seconds</option>
+  </select>
+</div>
+
+  <div class="setting">
+    <label for="style">🎨 Style</label>
+    <select id="style">
+      <option value="cinematic">🎬 Cinematic</option>
+      <option value="realistic">📹 Realistic</option>
+      <option value="anime">🎨 Anime</option>
+      <option value="3d">🎮 3D</option>
+      <option value="action">⚡ Action</option>
+    </select>
+  </div>
+
+</div>
+
+      <button onclick="generateVideo()">
+        🚀 Generate Video
+      </button>
+
+      <p id="status"></p>
+
+    </div>
+
+
+    <!-- RESULT -->
+    <div class="result" id="result">
+
+      <h2>
+        🎬 Your Video
+      </h2>
+
+      <p>
+        Your generated video will appear here.
+      </p>
+
+    </div>
+<!-- PROFESSIONAL FEATURES -->
+
+<section class="features-section">
+
+  <h2>Everything You Need to Create with AI ✨</h2>
+
+  <p class="section-subtitle">
+    Turn your imagination into engaging videos with simple AI-powered tools.
+  </p>
+
+  <div class="feature-grid">
+
+    <div class="feature-card">
+      <div class="feature-icon">💡</div>
+      <h3>Describe Your Idea</h3>
+      <p>
+        Simply write what you want your video to look like.
+      </p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">🤖</div>
+      <h3>AI Creates Your Video</h3>
+      <p>
+        Our AI transforms your idea into a video automatically.
+      </p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">🎬</div>
+      <h3>Download & Enjoy</h3>
+      <p>
+        Watch your generated video and download it when ready.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="how-section">
+
+  <h2>How It Works 🚀</h2>
+
+  <div class="steps">
+
+    <div class="step">
+      <span>01</span>
+      <h3>Write</h3>
+      <p>Describe the video you want to create.</p>
+    </div>
+
+    <div class="step">
+      <span>02</span>
+      <h3>Generate</h3>
+      <p>Click Generate Video and let AI do the work.</p>
+    </div>
+
+    <div class="step">
+      <span>03</span>
+      <h3>Download</h3>
+      <p>Watch your video and download the result.</p>
+    </div>
+
+  </div>
+
+</section>
+
+    
+
+  </main>
+<footer class="site-footer">
+  <div class="footer-content">
+
+    <div>
+      <div class="footer-logo">🎬 AI Video</div>
+      <p>Create amazing videos with AI.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="#">Home</a>
+      <a href="#">Features</a>
+      <a href="#">How It Works</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 AI Video Generator. All rights reserved.
+  </div>
+</footer>
+
+  <!-- LOGIN POPUP -->
+
+  <div class="auth-popup" id="loginPopup">
+
+    <div class="auth-box">
+
+      <button class="close-btn" onclick="closeAuth()">
+        ×
+      </button>
+
+      <h2>
+        Welcome Back 👋
+      </h2>
+
+      <p>
+        Login to your account
+      </p>
+
+      <input
+        type="email"
+        placeholder="Email address"
+      >
+
+      <input
+        type="password"
+        placeholder="Password"
+      >
+
+      <button
+        class="auth-submit"
+        onclick="loginUser()"
+      >
+        Login
+      </button>
+
+      <p class="switch-text">
+
+        Don't have an account?
+
+        <span onclick="showSignup()">
+          Sign Up
+        </span>
+
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- SIGN UP POPUP -->
+
+  <div class="auth-popup" id="signupPopup">
+
+    <div class="auth-box">
+
+      <button class="close-btn" onclick="closeAuth()">
+        ×
+      </button>
+
+      <h2>
+        Create Account 🚀
+      </h2>
+
+      <p>
+        Sign up to start creating videos
+      </p>
+
+      <input
+        type="text"
+        placeholder="Full name"
+      >
+
+      <input
+        type="email"
+        placeholder="Email address"
+      >
+
+      <input
+        type="password"
+        placeholder="Create password"
+      >
+
+      <button
+        class="auth-submit"
+        onclick="signupUser()"
+      >
+        Sign Up
+      </button>
+
+      <p class="switch-text">
+
+        Already have an account?
+
+        <span onclick="showLogin()">
+          Login
+        </span>
+
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script src="script.js"></script>
+
+  <script>
+
+    function showLogin() {
+
+      document.getElementById("signupPopup").style.display = "none";
+
+      document.getElementById("loginPopup").style.display = "flex";
+
+    }
+
+
+    function showSignup() {
+
+      document.getElementById("loginPopup").style.display = "none";
+
+      document.getElementById("signupPopup").style.display = "flex";
+
+    }
+
+
+    function closeAuth() {
+
+      document.getElementById("loginPopup").style.display = "none";
+
+      document.getElementById("signupPopup").style.display = "none";
+
+    }
+
+  </script>
+
+</body>
+</html>
